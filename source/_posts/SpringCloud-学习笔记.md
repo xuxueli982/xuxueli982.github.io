@@ -53,7 +53,7 @@ tags: SpringCloud
 
 > Eureka就是帮助我们维护所有服务的信息，以便服务之间的相互调用。
 
-![image-20201202170415350](/assets/springcloud/image-20201202170415350.png)
+![image-20201202170415350](image-20201202170415350.png)
 
 ### Euraka的快速入门
 
@@ -326,7 +326,7 @@ Eureka就是一个AP的效果，高可用的集群，Eureka集群是无中心，
 > - 客户端负载均衡：customer客户模块，将两个search模块信息全部拉取到本地的缓存，在customer中自己做一个负载均衡的策略，选中某一个服务。
 > - 服务端负载均衡：在注册中心中，直接根据你指定的负载均衡策略，帮你选中一个指定的服务信息，并返回。
 
-![image-20201203112857670](/assets/springcloud/image-20201203112857670.png)
+![image-20201203112857670](image-20201203112857670.png)
 
 ### Ribbon的快速入门
 
@@ -578,7 +578,7 @@ public class SearchClientFallBackFactory implements FallbackFactory<SearchClient
 
 ### 引言
 
-![image-20201204142948147](/assets/springcloud/image-20201204142948147.png)
+![image-20201204142948147](image-20201204142948147.png)
 
 ### 降级机制的实现
 
@@ -675,11 +675,11 @@ public Customer findById(@PathVariable Integer id)throws InterruptedException{
 
 > 在调用指定服务时，如果说这个服务的失败率达到输入的一个阈值，将断路器从closed状态，转变为open状态，指定服务是无法被访问的，如果访问就直接走fallback方法，在一定时间内，open状态会再次转变为half      open状态，允许一个请求发送到我指定的服务，如果成功，转变为closed，如果失败，服务再次转变为open状态，会再次循环到half open，直到断路器回到一个closed状态。
 
-![image-20201204162617695](/assets/springcloud/image-20201204162617695.png)
+![image-20201204162617695](image-20201204162617695.png)
 
 #### 配置断路器的监控界面
 
-![image-20201205233318794](/assets/springcloud/image-20201205233318794.png)
+![image-20201205233318794](image-20201205233318794.png)
 
 1、导入依赖
 
@@ -709,7 +709,7 @@ public class HystrixServlet extends HystrixMetricsStreamServlet {
 
 #### 配置断路器的属性
 
-![image-20201205235243369](/assets/springcloud/image-20201205235243369.png)
+![image-20201205235243369](image-20201205235243369.png)
 
 > [详见官方文档](https://github.com/Netflix/Hystrix/wiki/Configuration#circuitBreaker.enabled)
 
@@ -741,7 +741,7 @@ public class HystrixServlet extends HystrixMetricsStreamServlet {
 
 3、在一次请求中，目标方法被调用过一次，以后就都会被缓存。
 
-![image-20201206000650027](/assets/springcloud/image-20201206000650027.png)
+![image-20201206000650027](image-20201206000650027.png)
 
 #### 请求缓存的实现
 
@@ -813,7 +813,7 @@ public Customer findById(@PathVariable Integer id){
 
 6、测试结果
 
-![image-20201206005450764](/assets/springcloud/image-20201206005450764.png)
+![image-20201206005450764](image-20201206005450764.png)
 
 ## 服务的网关：Zuul
 
@@ -824,7 +824,7 @@ public Customer findById(@PathVariable Integer id){
 > - 项目的迭代，服务要拆分，服务要合并，需要客户端进行大量的变化。
 > - 统一的把安全性校验都放在Zuul中。
 
-![image-20201206143120641](/assets/springcloud/image-20201206143120641.png)
+![image-20201206143120641](image-20201206143120641.png)
 
 ### Zuul的快速入门
 
@@ -892,7 +892,7 @@ management:
 
 3、直接访问
 
-![image-20201206145429176](/assets/springcloud/image-20201206145429176.png)
+![image-20201206145429176](image-20201206145429176.png)
 
 #### 忽略服务配置
 
@@ -958,13 +958,13 @@ zuul:
 
 4、测试
 
-![image-20201206154702628](/assets/springcloud/image-20201206154702628.png)
+![image-20201206154702628](image-20201206154702628.png)
 
 ### Zuul的过滤器执行流程
 
 > 客户端请求发送到zuul服务上，首先通过PreFilter链，如果正常放行，会把请求再次转发给RoutingFilter，请求转发到一个指定的服务，在指定的服务响应一个结果后，再次走一个PostFilter的过滤器链，最终再将响应信息交给客户端。
 
-![image-20201206155136998](/assets/springcloud/image-20201206155136998.png)
+![image-20201206155136998](image-20201206155136998.png)
 
 ### Zuul过滤器入门
 
@@ -1015,7 +1015,7 @@ public Object run() throws ZuulException {
 
 6、测试
 
-![image-20201206160924248](./assets/springcloud/image-20201206160924248.png)
+![image-20201206160924248](.image-20201206160924248.png)
 
 ### PreFilter实现token检验
 
@@ -1067,7 +1067,7 @@ public class AuthenticationFilter extends ZuulFilter {
 
 4、测试
 
-![image-20201206162522700](/assets/springcloud/image-20201206162522700.png)
+![image-20201206162522700](image-20201206162522700.png)
 
 ### Zuul降级
 
@@ -1165,7 +1165,7 @@ public Object run() throws ZuulException {
 
 3、测试
 
-![image-20201206174139484](/assets/springcloud/image-20201206174139484.png)
+![image-20201206174139484](image-20201206174139484.png)
 
 ## 多语言支持 Sidecar
 
@@ -1173,7 +1173,7 @@ public Object run() throws ZuulException {
 
 > 在SpringCloud的项目中，需要接入一些非Java的程序，第三方接口，无法接入Eureka，Hystrix，Feign等等组件，启动一个代理的微服务，代理微服务去和非Java的程序或第三方接口交互，通过代理微服务去接入SpringCloud的相关组件。
 
-![image-20201207104917081](/assets/springcloud/image-20201207104917081.png)
+![image-20201207104917081](image-20201207104917081.png)
 
 ### Sidecar实现
 
@@ -1223,7 +1223,7 @@ sidecar:
 
 6、通过customer调用第三方服务
 
-![image-20201207113257702](/assets/springcloud/image-20201207113257702.png)
+![image-20201207113257702](image-20201207113257702.png)
 
 ## 服务间消息传递：Stream
 
@@ -1239,7 +1239,7 @@ sidecar:
 > 4. 消费者组的支持。
 > 5. Topic分区的支持。
 
-![image-20201207114808902](/assets/springcloud/image-20201207114808902.png)
+![image-20201207114808902](image-20201207114808902.png)
 
 ### Stream快速入门
 
@@ -1386,7 +1386,7 @@ public void msg(Object msg,
 > - 配置文件的安全问题
 > - 修改完配置文件，无法立即生效
 
-![image-20201207145400833](/assets/springcloud/image-20201207145400833.png)
+![image-20201207145400833](image-20201207145400833.png)
 
 ### 搭建Config-Server
 
@@ -1430,7 +1430,7 @@ spring:
 
 > `http://localhost:port/{label}/{application}-{profile}.yml`
 
-![image-20201207170900983](/assets/springcloud/image-20201207170900983.png)
+![image-20201207170900983](image-20201207170900983.png)
 
 ==问题：==配置好config-server服务后无法通过连接地址访问到远程git仓库中的配置文件
 
@@ -1483,7 +1483,7 @@ version : v1
 
 #### 实现原理
 
-![image-20201207182600904](/assets/springcloud/image-20201207182600904.png)
+![image-20201207182600904](image-20201207182600904.png)
 
 #### 服务连接RabbitMQ
 
@@ -1555,7 +1555,7 @@ public class CustomerController {
 
 1、配置Gitee中的WebHooks
 
-![image-20201207192516664](/assets/springcloud/image-20201207192516664.png)
+![image-20201207192516664](image-20201207192516664.png)
 
 添加完webhooks之后gitee会尝试发送一个请求给config应用，这时由于没有配置过滤器会报`400`错误码。
 
@@ -1626,7 +1626,7 @@ public class UrlFilter implements Filter {
 >
 > 3、Sleuth将日志信息存储到数据库中。
 
-![image-20201207212921438](/assets/springcloud/image-20201207212921438.png)
+![image-20201207212921438](image-20201207212921438.png)
 
 ### Sleuth使用
 
@@ -1649,7 +1649,7 @@ logging:
 
 3、测试
 
-![image-20201207215113742](/assets/springcloud/image-20201207215113742.png)
+![image-20201207215113742](image-20201207215113742.png)
 
 链路日志各个字段代表的含义：
 
@@ -1729,7 +1729,7 @@ services:
 
 4、测试
 
-![image-20201207231127086](/assets/springcloud/image-20201207231127086.png)
+![image-20201207231127086](image-20201207231127086.png)
 
 ### Zipkin存储数据到ES
 
@@ -1753,6 +1753,6 @@ services:
 	   - ES_HOSTS=http://192.168.25.150:9200
 ```
 
-## 十一、完整SpringCloud架构图
+## 完整SpringCloud架构图
 
-![image-20201207233028081](/assets/springcloud/image-20201207233028081.png)
+![image-20201207233028081](image-20201207233028081.png)

@@ -1,7 +1,7 @@
 ---
 title: Java 基础知识
 date: 2021-01-15 16:08:53
-tags:
+tags: Java
 ---
 
 ## 一、数据类型
