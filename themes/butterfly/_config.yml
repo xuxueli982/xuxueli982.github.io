@@ -7,15 +7,15 @@
 #   name || link || icon
 
 menu:
-  # Home: / || fas fa-home
-  # Archives: /archives/ || fas fa-archive
-  # Tags: /tags/ || fas fa-tags
-  # Categories: /categories/ || fas fa-folder-open
-  # List||fas fa-list:
-  #   - Music || /music/ || fas fa-music
-  #   - Movie || /movies/ || fas fa-video
-  # Link: /link/ || fas fa-link
-  # About: /about/ || fas fa-heart
+  主页: / || fas fa-home
+  总览: /archives/ || fas fa-archive
+  标签: /tags/ || fas fa-tags
+  分类: /categories/ || fas fa-folder-open
+  友情链接: /link/ || fas fa-link
+  关于: /about/ || fas fa-heart
+  媒体资源||fas fa-list:
+    - Music || /music/ || fas fa-music
+    - Movie || /movies/ || fas fa-video
 
 # Hide the child menu items in mobile sidebar
 hide_sidebar_menu_child: false
@@ -28,7 +28,15 @@ highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
 code_word_wrap: false
-
+# 添加友情链接
+# Flink:
+  # headline: 友情链接
+  # info_headline: 我的Blog资料
+  # name: Blog 名字: xxx
+  # address: Blog 地址: https://xxx.com
+  # avatar: Blog 头像: https://xxx.com
+  # info: Blog 简介: xxx,xxx
+  # comment: 如需交换友链，请留言
 # copy settings
 # copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
 copy:
@@ -41,8 +49,8 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  # fab fa-github: https://github.com/xxxxx || Github
-  # fas fa-envelope: mailto:xxxxxx@gmail.com || Email
+  fab fa-github: https://github.com/JavaSnail/Java-notes || Github
+  fas fa-envelope: mailto:xuxueli982@163.com || Email
 
 # search (搜索)
 # --------------------------------------
@@ -495,7 +503,7 @@ tag_ui: # 留空或 index
 background:
 
 # Footer Background
-footer_bg: false
+footer_bg: true
 
 # the position of bottom right button/default unit: px (右下角按鈕距離底部的距離/默認單位為px)
 rightside-bottom:
@@ -509,7 +517,7 @@ enter_transitions: true
 # canvas_ribbon (靜止彩帶背景)
 # See: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   size: 150
   alpha: 0.6
   zIndex: -1
@@ -518,13 +526,16 @@ canvas_ribbon:
 
 # Fluttering Ribbon (動態彩帶)
 canvas_fluttering_ribbon:
-  enable: false
+  enable: true
   mobile: false
-
+  
+canvas_ribbon_piao:
+  enable: true
+  mobile: false # false 手机端不显示 true 手机端显示
 # canvas_nest
 # https://github.com/hustcc/canvas-nest.js
 canvas_nest:
-  enable: false
+  enable: true
   color: '0,0,255' #color of lines, default: '0,0,0'; RGB values: (R,G,B).(note: use ',' to separate.)
   opacity: 0.7 # the opacity of line (0~1), default: 0.5.
   zIndex: -1 # z-index property of the background, default: -1.
@@ -539,18 +550,18 @@ activate_power_mode:
   shake: true #  open shake (抖動特效)
   mobile: false
 
-# Mouse click effects: fireworks (鼠標點擊效果: 煙火特效)
+# Mouse click effects: fireworks (鼠标点击效果，烟火效果)
 fireworks:
-  enable: false
+  enable: true
   zIndex: 9999 # -1 or 9999
   mobile: false
 
-# Mouse click effects: Heart symbol (鼠標點擊效果: 愛心)
+# Mouse click effects: Heart symbol (鼠标点击效果：爱心)
 click_heart:
   enable: false
   mobile: false
 
-# Mouse click effects: words (鼠標點擊效果: 文字)
+# Mouse click effects: words (鼠标点击效果: 文字)
 ClickShowText:
   enable: false
   text:
@@ -567,7 +578,7 @@ display_mode: light
 
 # Beautify (美化頁面顯示)
 beautify:
-  enable: false
+  enable: true
   field: post # site/post
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: '#F47466'
@@ -594,7 +605,7 @@ hr_icon:
 
 # the subtitle on homepage (主頁subtitle)
 subtitle:
-  enable: false
+  enable: true
   # Typewriter Effect (打字效果)
   effect: true
   # loop (循環打字)
@@ -612,9 +623,11 @@ subtitle:
   # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
   # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
   sub:
+    - 今日事&#44，今日毕
+    - Never put off till tomorrow what you can do today
 
 # Loading Animation (加載動畫)
-preloader: false
+preloader: true
 
 # aside (側邊欄)
 # --------------------------------------
@@ -624,17 +637,17 @@ aside:
   hide: false
   button: true
   mobile: true # display on mobile
-  position: right # left or right
+  position: left # left or right
   card_author:
     enable: true
     description:
     button:
       enable: true
       icon: fab fa-github
-      text: Follow Me
+      text: 关注 GitHub
       link: https://github.com/JavaSnail/Java-notes
   card_announcement:
-    enable: true
+    enable: false
     content: This is my Blog
   card_recent_post:
     enable: true
