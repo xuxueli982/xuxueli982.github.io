@@ -1,12 +1,12 @@
 ---
-title: Java 基础知识
-date: 2021-01-15 16:08:53
+title: Java Basic
+date: 2020-12-17 11:42:15
 tags: Java
 ---
 
-## 一、数据类型
+## 数据类型
 
-### **1.1 基本数据类型**
+###  基本数据类型
 
 [基本类型](https://www.notion.so/ae96334d0daf44fdae945d25b40d83a6)
 
@@ -25,11 +25,7 @@ tags: Java
 
 [Primitive Data Types](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html)
 
-[Java%20%E5%9F%BA%E7%A1%80%206ec2ad8f75934adfa79d79ad2dd18ae0/jvms8.pdf](Java%20%E5%9F%BA%E7%A1%80%206ec2ad8f75934adfa79d79ad2dd18ae0/jvms8.pdf)
-
-The Java Virtual Machine Specification
-
-### 1.2 **包装类型**
+### 包装类型
 
 基本类型都有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。
 
@@ -40,7 +36,7 @@ int y = x; // 拆箱 调用了 X.intValue()
 
 [Autoboxing and Unboxing](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)
 
-### 1.3 **缓存池**
+### 缓存池
 
 new Integer(123) 与 Integer.valueOf(123) 的区别在于：
 
@@ -122,9 +118,9 @@ System.out.println(m == n); // true
 
 [Differences between new Integer(123), Integer.valueOf(123) and just 123](https://stackoverflow.com/questions/9030817/differences-between-new-integer123-integer-valueof123-and-just-123)
 
-## 二、String
+## String
 
-### 2.1 **概览**
+###  **概览**
 
 String 被声明为 final，因此它不可被继承。(Integer 等包装类也不能被继承）
 
@@ -153,7 +149,7 @@ public final class String
 
 value 数组被声明为 final，这意味着 value 数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变。
 
-### 2.2 **不可变的好处**
+### 不可变的好处
 
 1. 可以缓存 hash 值
 
@@ -163,7 +159,7 @@ value 数组被声明为 final，这意味着 value 数组初始化之后就不�
 
 如果一个 String 对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用 String Pool。
 
-![Java%20%E5%9F%BA%E7%A1%80%206ec2ad8f75934adfa79d79ad2dd18ae0/68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f696d6167652d32303139313231303030343133323839342e706e67](Java%20%E5%9F%BA%E7%A1%80%206ec2ad8f75934adfa79d79ad2dd18ae0/68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f696d6167652d32303139313231303030343133323839342e706e67)
+![](68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f696d6167652d32303139313231303030343133323839342e706e67)
 
 3. 安全性
 
@@ -175,7 +171,7 @@ String 不可变性天生具备线程安全，可以在多个线程中安全地�
 
 [Why String is immutable in Java?](https://www.programcreek.com/2013/04/why-string-is-immutable-in-java/)
 
-### 2.3 String, StringBuffer and StringBuilder
+### String, StringBuffer and StringBuilder
 
 **1. 可变性**
 
@@ -190,7 +186,7 @@ String 不可变性天生具备线程安全，可以在多个线程中安全地�
 
 [String, StringBuffer, and StringBuilder](https://stackoverflow.com/questions/2971315/string-stringbuffer-and-stringbuilder)
 
-### 2.4 String Pool
+### String Pool
 
 字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。不仅如此，还可以使用 String 的 intern() 方法在运行过程将字符串添加到 String Pool 中。
 
@@ -221,7 +217,7 @@ System.out.println(s5 == s6); // true
 
 [深入解析String#intern](https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html)
 
-### 2.5 new String("abc")
+### new String("abc")
 
 使用这种方式一共会创建两个字符串对象（前提是 String Pool 中还没有 "abc" 字符串对象）。
 
@@ -275,9 +271,9 @@ public String(String original) {
 }
 ```
 
-## 三、运算
+## 运算
 
-### 3.1 参数传递
+### 参数传递
 
 Java 的参数是以值传递的形式传入方法中，而不是引用传递。
 
@@ -345,7 +341,7 @@ public class PassByValueExample {
 
 [Is Java "pass-by-reference" or "pass-by-value"?](https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value)
 
-### 3.2 float 与 double
+### float 与 double
 
 Java 不能隐式执行向下转型，因为这会使得精度降低。
 
@@ -361,7 +357,7 @@ Java 不能隐式执行向下转型，因为这会使得精度降低。
 float f = 1.1f;
 ```
 
-### 3.3 隐式类型转换
+###  隐式类型转换
 
 因为字面量 1 是 int 类型，它比 short 类型精度要高，因此不能隐式地将 int 类型向下转型为 short 类型。
 
@@ -385,7 +381,7 @@ s1 = (short) (s1 + 1);
 
 [Why don't Java's +=, -=, *=, /= compound assignment operators require casting?](https://stackoverflow.com/questions/8710619/why-dont-javas-compound-assignment-operators-require-casting)
 
-### 3.4 switch
+### switch
 
 从 Java 7 开始，可以在 switch 条件判断语句中使用 String 对象。
 
@@ -417,9 +413,9 @@ switch 不支持 long、float、double，是因为 switch 的设计初衷是对�
 
 [Why can't your switch statement data type be long, Java?](https://stackoverflow.com/questions/2676210/why-cant-your-switch-statement-data-type-be-long-java)
 
-## 四、关键字
+## 关键字
 
-### 4.1 final
+### final
 
 **1. 修饰数据**
 
@@ -445,7 +441,7 @@ private 方法隐式地被指定为 final，如果在子类中定义的方法和
 
 声明类不允许被继承。
 
-### 4.2 static
+### static
 
 **1. 静态变量**
 
@@ -590,9 +586,9 @@ public InitialOrderTest() {
 - 子类（实例变量、普通语句块）
 - 子类（构造函数）
 
-## 五、Object 通用方法
+## Object 通用方法
 
-### 5.1 概览
+### 概览
 
 ```java
 public native int hashCode()
@@ -618,7 +614,7 @@ public final void wait(long timeout, int nanos) throws InterruptedException
 public final void wait() throws InterruptedException
 ```
 
-### 5.2 equals()
+### equals()
 
 **1. 等价关系**
 
@@ -705,7 +701,7 @@ public class EqualExample {
 }
 ```
 
-### 5.3 hashCode()
+### hashCode()
 
 hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。
 
@@ -740,7 +736,7 @@ public int hashCode() {
 }
 ```
 
-### 5.4 toString()
+### toString()
 
 默认返回 ToStringExample@4554617c 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。
 
@@ -764,7 +760,7 @@ System.out.println(example.toString());
 ToStringExample@4554617c
 ```
 
-### 5.5 clone()
+### clone()
 
 **1. cloneable**
 
@@ -956,9 +952,9 @@ e1.set(2, 222);
 System.out.println(e2.get(2)); // 2
 ```
 
-## 六、继承
+## 继承
 
-### 6.1 访问权限
+### 访问权限
 
 Java 中有三个访问权限修饰符：private、protected 以及 public，如果不加访问修饰符，表示包级可见。
 
@@ -1019,7 +1015,7 @@ public class AccessWithInnerClassExample {
 }
 ```
 
-### 6.2 抽象类与接口
+### 抽象类与接口
 
 **1. 抽象类**
 
@@ -1129,7 +1125,7 @@ System.out.println(InterfaceExample.x);
 
 [Java 9 Private methods in Interfaces - JournalDev](https://www.journaldev.com/12850/java-9-private-methods-interfaces)
 
-### 6.3 super
+### super
 
 - 访问父类的构造函数：可以使用 super() 函数访问父类的构造函数，从而委托父类完成一些初始化的工作。应该注意到，子类一定会调用父类的构造函数来完成初始化工作，一般是调用父类的默认构造函数，如果子类需要调用父类其它构造函数，那么就可以使用 super() 函数。
 - 访问父类的成员：如果子类重写了父类的某个方法，可以通过使用 super 关键字来引用父类的方法实现。
@@ -1181,7 +1177,7 @@ SuperExtendExample.func()
 
 [Using the Keyword super](https://docs.oracle.com/javase/tutorial/java/IandI/super.html)
 
-### 6.4 重写与重载
+### 重写与重载
 
 **1. 重写（Override）**
 
@@ -1311,7 +1307,7 @@ public static void main(String[] args) {
 }
 ```
 
-## 七、反射
+## 反射
 
 每个类都有一个 **Class** 对象，包含了与类有关的信息。当编译一个新类时，会产生一个同名的 .class 文件，该文件内容保存着 Class 对象。
 
@@ -1343,20 +1339,20 @@ Class 和 java.lang.reflect 一起对反射提供了支持，java.lang.reflect �
 
 [深入解析Java反射（1） - 基础](https://www.sczyh30.com/posts/Java/java-reflection-1/)
 
-## 八、异常
+## 异常
 
 Throwable 可以用来表示任何可以作为异常抛出的类，分为两种： **Error** 和 **Exception**。其中 Error 用来表示 JVM 无法处理的错误，Exception 分为两种：
 
 - **受检异常** ：需要用 try...catch... 语句捕获并进行处理，并且可以从异常中恢复；
 - **非受检异常** ：是程序运行时错误，例如除 0 会引发 Arithmetic Exception，此时程序崩溃并且无法恢复。
 
-[Java%20%E5%9F%BA%E7%A1%80%206ec2ad8f75934adfa79d79ad2dd18ae0/68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f50506a77502e706e67](Java%20%E5%9F%BA%E7%A1%80%206ec2ad8f75934adfa79d79ad2dd18ae0/68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f50506a77502e706e67)
+![](68747470733a2f2f63732d6e6f7465732d313235363130393739362e636f732e61702d6775616e677a686f752e6d7971636c6f75642e636f6d2f50506a77502e706e67)
 
 [Java入门7---异常处理](https://www.cnblogs.com/nxf-rabbit75/p/13443751.html)
 
 [Java Exception Interview Questions and Answers - JournalDev](https://www.journaldev.com/2167/java-exception-interview-questions-and-answers)
 
-## 九、泛型
+## 泛型
 
 ```java
 public class Box<T> {
@@ -1371,13 +1367,13 @@ public class Box<T> {
 
 [10 道 Java 泛型面试题](https://cloud.tencent.com/developer/article/1033693)
 
-## 十、注解
+## 注解
 
 Java 注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能。注解不会也不能影响代码的实际逻辑，仅仅起到辅助性的作用。
 
 [注解Annotation实现原理与自定义注解例子](https://www.cnblogs.com/acm-bingzi/p/javaAnnotation.html)
 
-## 十一、特性
+## 特性
 
 ### Java 各版本的新特性
 
