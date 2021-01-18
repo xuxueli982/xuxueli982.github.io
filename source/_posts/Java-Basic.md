@@ -2,6 +2,7 @@
 title: Java Basic
 date: 2020-12-17 11:42:15
 tags: Java
+categories: Java 基础
 ---
 
 ## 数据类型

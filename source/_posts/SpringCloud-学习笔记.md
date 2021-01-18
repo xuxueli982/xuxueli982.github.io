@@ -2,6 +2,7 @@
 title: SpringCloud 学习笔记
 date: 2021-01-16 16:04:58
 tags: SpringCloud
+categories: 分布式
 ---
 
 ## SpringCloud介绍
